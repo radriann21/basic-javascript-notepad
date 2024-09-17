@@ -25,3 +25,13 @@ export function renderNotes(notes, notesContainer) {
     notesContainer.appendChild(li)
   })
 }
+
+export function writeCharacters(chars, description) {
+  description.addEventListener('input', (evt) => {
+    let number = evt.target.value.length
+
+    if (number <= 500) {
+      chars.innerText = number
+    } 
+  })
+}
