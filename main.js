@@ -1,28 +1,12 @@
+import { setNote, renderNotes } from "./notesFunctions.js"
+
 document.addEventListener('DOMContentLoaded', () => {
-  let notes = []
-  if (!localStorage.getItem('notes')) {
-    localStorage.setItem('notes', JSON.stringify(notes))
-  } else {
-    notes = JSON.parse(localStorage.getItem('notes'))
-  }
-
-  const desc = document.getElementById('description')
   const form = document.getElementById('form')
+  const notesContainer = document.getElementById('notesContainer')
+  const notes = JSON.parse(localStorage.getItem('notes')) || []
 
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-
-    const formData = new FormData(evt.target)
-    const noteObj = {
-      id: crypto.randomUUID()
-    }
-
-    formData.forEach((value, key) => {
-      noteObj[key] = value
-    })
-    notes.push(noteObj)
-    localStorage.setItem('notes', JSON.stringify(notes))
-  })
+  renderNotes(notes, notesContainer)
+  form.addEventListener('submit', (evt) => setNote(notes, evt, notesContainer))
 })
 
 
