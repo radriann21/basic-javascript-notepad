@@ -10,15 +10,15 @@
   <body>
     
     <main class="container">
-      <form>
+      <form id="form">
         <h2>Write Note</h2>
         <section class="title-input">
           <label for="title">Title</label>
-          <input type="text" placeholder="write a title..." required>
+          <input id="title" name="title" type="text" placeholder="write a title..." required>
         </section>
         <section class="desc-input">
           <label for="desc">Description</label>
-          <textarea placeholder="write a description..." name="desc" maxlength="500" rows="8" cols="50" id="description"></textarea>
+          <textarea id="description" placeholder="write a description..." name="desc" maxlength="500" rows="8" cols="50" id="description"></textarea>
         </section>
         <button>Set note</button>
       </form>
